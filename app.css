@@ -1,0 +1,104 @@
+@import url(fonts/fontiran.css); /* لینک فایلی که وظیفه بارگذاری فونت ها را برعهده دارد */
+
+@keyframes animate-up-down-arrow {
+    from {bottom: 30px}
+    to {bottom: 8px}
+}
+@keyframes animate-down-up-arrow {
+    from {top: 30px}
+    to {top: 8px}
+}
+
+@keyframes animate-background-color {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+body,html {
+    font-family: PeydaWeb, serif !important;
+    direction: rtl;
+    background-color: #000;
+    color: white;
+    margin: 0 ;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: PeydaWeb, serif !important;
+}
+
+.center-flex {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-logos > img{
+    -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+    filter: grayscale(1); /* Microsoft Edge and Firefox 35+ */
+    object-fit: contain;
+}
+
+.bottom-arrow{
+    animation-name: animate-up-down-arrow;
+    animation-duration: 700ms;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+}
+
+.top-arrow{
+    animation-name: animate-down-up-arrow;
+    animation-duration: 700ms;
+    animation-iteration-count: infinite;
+    transform: scale(-1);
+    animation-direction: alternate-reverse;
+}
+
+.tag{
+    border-radius: 100px;
+    padding: 0 12px;
+    font-size: 10px;
+    margin-left: 2px;
+    margin-right: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 16px;
+    font-weight: bolder;
+    position: relative;
+    border: red solid 2px;
+}
+.tag-fill{
+    border: red solid 2px;
+    background: red;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 12px;
+    height: 16px;
+    position: relative;
+    font-weight: bolder;
+    margin-left: 2px;
+    margin-right: 2px;
+    font-size: 10px;
+}
+
+
+.simple-button{
+    background: darkgray;
+    background-size: 1000% 1000%;
+    padding: 4px 16px;
+    border-radius: 8px;
+}
+
+.glowing-button{
+    background: linear-gradient(270deg, #ff2400, #0076ff, #fd00ff, #ffab00, #1da100,#0076ff,#ff2400);
+    background-size: 1000% 1000%;
+    animation-direction: alternate-reverse;
+    -webkit-animation: animate-background-color 5s ease infinite;
+    -moz-animation: animate-background-color 5s ease infinite;
+    animation: animate-background-color 5s ease infinite;
+    box-shadow: 0 1px 47px 6px #D33A56;
+}
