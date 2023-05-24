@@ -1,23 +1,5 @@
 "use strict";
 $(function () {
-
-    const firebaseConfig = {
-        apiKey: "AIzaSyCQ0cVM68wakYy1WjkIij2ATtGBTEIRUYc",
-        authDomain: "humastore-4612c.firebaseapp.com",
-        databaseURL: "https://humastore-4612c.firebaseio.com/",
-        projectId: "humastore-4612c",
-        storageBucket: "humastore-4612c.appspot.com",
-        messagingSenderId: "107295737637",
-        appId: "1:107295737637:web:f99c3ad0c3cd26ad5a3ccc",
-        measurementId: "G-HERGWN5S2M"
-    };
-    firebase.initializeApp(firebaseConfig);
-    const analytic = firebase.analytics();
-
-    let keyCode = {
-        rightKey: 39, enterKey: 13, backKey: 166, leftKey: 37, downKey: 40, upKey: 38, escKey: 27,
-    };
-
     const Pages = {
         Home: 1,
         Lottery: 2,
@@ -26,6 +8,11 @@ $(function () {
         Game_60Games: 5,
         Game_BombHunters: 6,
     }
+
+    let keyCode = {
+        rightKey: 39, enterKey: 13, backKey: 166, leftKey: 37, downKey: 40, upKey: 38, escKey: 27,
+    };
+
     const getPageName = function (page) {
         switch (page) {
             case Pages.Home:
@@ -42,10 +29,6 @@ $(function () {
                 return "Game_BombHunters";
         }
     }
-
-    let currentPage = Pages.Home
-    console.log(getPageName(currentPage))
-    analytic.logEvent("page_scroll", {name: getPageName(currentPage)})
 
     $(document).on('keydown', function (e) {
         let focusedButton = $(".glowing-button");
@@ -134,6 +117,26 @@ $(function () {
     window.onresize = function () {
         viewport_set();
     }
+
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyCQ0cVM68wakYy1WjkIij2ATtGBTEIRUYc",
+        authDomain: "humastore-4612c.firebaseapp.com",
+        databaseURL: "https://humastore-4612c.firebaseio.com/",
+        projectId: "humastore-4612c",
+        storageBucket: "humastore-4612c.appspot.com",
+        messagingSenderId: "107295737637",
+        appId: "1:107295737637:web:f99c3ad0c3cd26ad5a3ccc",
+        measurementId: "G-HERGWN5S2M"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const analytic = firebase.analytics();
+
+    let currentPage = Pages.Home
+    console.log(getPageName(currentPage))
+    analytic.logEvent("page_scroll", {name: getPageName(currentPage)})
+
+
 
 })
 
